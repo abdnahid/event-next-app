@@ -1,0 +1,28 @@
+$theme-100:#1FC157;
+.navbar{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 10px 0;
+    background: $theme-100;
+    .container{
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        max-width: 80vw;
+        margin:auto;
+        align-items: center;
+        .logo{
+            cursor: pointer;
+            &>*{
+                display: block !important;
+            }
+        }
+        .nav{
+            text-align: right;
+            a{
+                font-size: 22px;
+                font-weight: 600;
+                color: #fff;
+                font-family: 'Spline Sans, sans-serif' ;
+            }
+        }
+    }
+}

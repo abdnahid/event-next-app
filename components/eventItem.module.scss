@@ -1,0 +1,38 @@
+$theme-100: #1FC157;
+$body-font: 'Montserrat Alternates, sans-serif';
+$heading-font: 'Petrona, serif';
+$button-font: 'Spline Sans, sans-serif';
+$button-bg:#1FC157;
+$border: 2px solid $button-bg;
+$border-thin: 1px solid $button-bg;
+$shadow-base: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+$shadow-blur: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+$shadow-side: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+$shadow-inset:  rgb(204, 219, 232) 3px 3px 6px 0px inset,rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+.eventitem{
+    padding: 20px;
+    box-shadow: $shadow-base;
+    h2{
+
+    }
+    .eventfeaturedimage{
+        & > *{
+            width: 100% !important;
+        }
+        img{
+            object-fit: cover;
+        }
+    }
+    .eventmetalist{
+        li{
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            .iconStyle{
+                padding-right: 10px;
+                color: $button-bg;
+                font-size: 40px;
+            }
+        }
+    }
+}
