@@ -1,8 +1,10 @@
 import EventList from '../components/EventList';
-import { getFeaturedEvents } from '../helpers/apiUtils';
 import Head from 'next/head';
+import connect from '../database/lib/connect';
+import Event from '../database/models/eventModel';
 
 export default function Home({ featuredEvents }) {
+  const featuredEventList = JSON.parse(featuredEvents);
   return (
     <>
       <Head>
@@ -14,7 +16,7 @@ export default function Home({ featuredEvents }) {
       </Head>
       <div className='container'>
         <section className='all-events'>
-          <EventList eventList={featuredEvents} />
+          <EventList eventList={featuredEventList} />
         </section>
       </div>
     </>
@@ -22,7 +24,9 @@ export default function Home({ featuredEvents }) {
 }
 
 export const getStaticProps = async () => {
-  const featuredEvents = await getFeaturedEvents();
+  connect();
+  const getFeaturedEvents = await Event.find({ isActive: true });
+  const featuredEvents = JSON.stringify(getFeaturedEvents);
   return {
     props: { featuredEvents },
     revalidate: 3600,
